@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/Proyectosdpe2020/sigep#readme",
   "dependencies": {
-    "bootstrap": "^4.5.0"
+    "blurt": "^2.0.0",
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1",
+    "normalize.css": "^8.0.1"
   }
 }
