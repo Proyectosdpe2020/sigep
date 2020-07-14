@@ -21,6 +21,8 @@
     "blurt": "^2.0.0",
     "bootstrap": "^4.5.0",
     "jquery": "^3.5.1",
-    "normalize.css": "^8.0.1"
+    "mdbootstrap": "^4.19.1",
+    "normalize.css": "^8.0.1",
+    "sidebarjs": "^6.1.0"
   }
 }

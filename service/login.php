@@ -2,7 +2,7 @@
 session_start();
 include('connection.php');
 
-$data = json_decode($_POST['data'], true );
+$data = json_decode($_POST['auth'], true );
 
 $user = $data['username'];
 $pass = $data['password'];

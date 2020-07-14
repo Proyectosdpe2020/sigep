@@ -8,10 +8,13 @@ $(document).ready(function(){
             type: "POST",  
             url: "service/login.php", 
             dataType : 'json', 
-            data: "data="+JSON.stringify({
-                username: $("#user").val(),
-                password: $("#pass").val()
-            })
+            data: {
+                auth: JSON.stringify({
+                    username: $("#user").val(),
+                    password: $("#pass").val()
+                })
+            },
+            dataType: 'json',
         }).done(function(response){
 
             if(response.state != "connection_fail"){
@@ -50,14 +53,17 @@ function setSessionVariables(type, data){
 
     $.ajax({  
         type: "POST",  
-        url: "service/set_session_variables.php",  
-        data: "data="+JSON.stringify({
-            type: type,
-            data: data
-        })
+        url: "service/set_session_variables.php", 
+        data: {
+            user_data: JSON.stringify({
+                type: type,
+                data: data
+            })
+        },
+        dataType: 'json'
+    }).done(function(response){
+        return response;
     });  
-
-    alert('sess');
     
     return false;
 }

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$data = json_decode($_POST['data'], true );
+$data = json_decode($_POST['user_data'], true );
 
 switch($data['type']){
     case 'user':

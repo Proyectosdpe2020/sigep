@@ -8,15 +8,16 @@ if(!isset($_SESSION['user_data'])){
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+		<link rel="stylesheet" href="node_modules/sidebarjs/lib/sidebarjs.css">
 		<link rel="stylesheet" href="node_modules/normalize.css">
 		<link rel="stylesheet" href="css/styles.css">
 		<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+		<!--<link rel="stylesheet" href="node_modules/sidebarjs/lib/sidebarjs.css">-->
 		
 		<script src="node_modules/jquery/dist/jquery.min.js" ></script>
 		<script src="node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>
-		<script src="node_modules/blurt/blurt.js" ></script>
+		<!--<script src="node_modules/sidebarjs/lib/amd/sidebarjs.js"></script>-->
+		<!--<script src="node_modules/blurt/blurt.js" ></script>-->
 		
 		<script src="js/function.js" ></script>
 
