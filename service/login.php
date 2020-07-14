@@ -2,16 +2,17 @@
 session_start();
 include('connection.php');
 
-$data = json_decode(stripslashes($_POST['data']));
+$data = json_decode($_POST['data'], true );
+
+$user = $data['username'];
+$pass = $data['password'];
 
 if($conn){
     $sql = "SELECT TOP (1)
         * 
         FROM [sigep].[dbo].[usuario] 
-        WHERE [usuario] = '$user' 
+        WHERE [usuario] = '$user'
         AND [contrasena] = '$pass'";
-
-        echo $sql;
 
     $params = array();
     $options =  array( "Scrollable" => SQLSRV_CURSOR_KEYSET );
@@ -47,17 +48,18 @@ if($conn){
             'user_data' => false
         );
     }
+
+    echo json_encode($return, JSON_FORCE_OBJECT);
+
+    sqlsrv_close($conn);
 }
 else{
-    echo "hola";
     $return = array(
         'state' => 'connection_fail',
         'user_data' => false
     );
+
+    echo json_encode($return, JSON_FORCE_OBJECT);
 }
 
-
-echo json_encode($return, JSON_FORCE_OBJECT);
-
-sqlsrv_close($conn);
 ?>

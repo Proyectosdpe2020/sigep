@@ -6,19 +6,18 @@ $(document).ready(function(){
 
         $.ajax({  
             type: "POST",  
-            url: "service/login.php",  
-            data: {
+            url: "service/login.php", 
+            dataType : 'json', 
+            data: "data="+JSON.stringify({
                 username: $("#user").val(),
                 password: $("#pass").val()
-            }
+            })
         }).done(function(response){
 
-            let content = JSON.parse(response);
+            if(response.state != "connection_fail"){
 
-            if(!content.state.localeCompare("connection_fail")){
-
-                if(!content.user_data){
-                    setSessionVariables('user', content.user_data);
+                if(response.user_data){
+                    setSessionVariables('user', response.user_data);
                     showLoading(true);
                     redirectTo('main/index.php');
                 }
@@ -52,11 +51,13 @@ function setSessionVariables(type, data){
     $.ajax({  
         type: "POST",  
         url: "service/set_session_variables.php",  
-        data: {
+        data: "data="+JSON.stringify({
             type: type,
             data: data
-        }
+        })
     });  
+
+    alert('sess');
     
     return false;
 }

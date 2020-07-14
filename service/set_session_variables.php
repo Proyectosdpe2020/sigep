@@ -1,5 +1,7 @@
 <?php
-$data = json_decode(stripslashes($_POST['data']));
+session_start();
+
+$data = json_decode($_POST['data'], true );
 
 switch($data['type']){
     case 'user':
@@ -10,7 +12,11 @@ switch($data['type']){
             'paternal_surename' => $data['data']['paternal_surename'],
             'maternal_surename' => $data['data']['maternal_surename']
         );
+        echo true;
     break;
+
+    default:
+        echo false;
 }
 
 ?>
